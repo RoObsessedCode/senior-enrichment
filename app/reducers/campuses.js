@@ -30,6 +30,8 @@ export function fetchCampuses () {
   };
 }
 
+
+
 export default function reducer (state = [], action) {
   console.log(action)
   switch (action.type) {
@@ -38,15 +40,13 @@ export default function reducer (state = [], action) {
       console.log('setting state')
       return action.campuses;
 
-    // case GET_CHANNEL:
-    //   return [...state, action.channel];
+    // case GET_CAMPUS:
+    //   return state.concat(action.campus);
+
 
     default:
       return state;
   }
 
 }
-
-
-
 

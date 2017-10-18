@@ -5,15 +5,16 @@ const models = require('../../db/models');
 const Campuses = models.Campus;
 
 router.get('/', (req, res, next) => {
-  console.log('we here!')
   Campuses.findAll()
     .then(campuses => res.json(campuses))
     .catch(next);
 });
 
 router.param('campusId', function (req, res, next, id) {
+  console.log('campusesessese')
   Campuses.findById(id)
   .then(campus => {
+
     if (!campus) {
       const err = Error('Campus not found');
       err.status = 404;
@@ -27,6 +28,7 @@ router.param('campusId', function (req, res, next, id) {
 });
 
 router.get('/:campusId', (req, res, next) => {
+  console.log('ues yes syeyse ')
   res.json(req.campus);
 });
 
@@ -51,10 +53,6 @@ router.delete('/:campusId', (req, res, next) => {
     .then(() => res.status(204).end())
     .catch(next);
 });
-// ro
-
-
-
 
 
 

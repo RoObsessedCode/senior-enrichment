@@ -3,6 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 
 //import subReducers
 import campuses from './campuses';
+import singleCampus from './singleCampus';
 
 //const initialState = {}
 
@@ -13,7 +14,7 @@ import campuses from './campuses';
 // };
 
 const rootReducer = combineReducers({
-  campuses
+  campuses, singleCampus
 });
 
 const store = createStore(
@@ -24,3 +25,4 @@ export default rootReducer
 
 //export action creaters
 export * from './campuses'
+export * from './singleCampus'

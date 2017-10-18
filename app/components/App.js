@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 //import Sidebar from './Sidebar';
 import { connect } from 'react-redux'
 import Navbar from './Navbar';
-import { fetchCampuses } from '../reducers/campuses.js';
+//import { fetchCampuses } from '../reducers/campuses.js';
+import {fetchCampuses } from '../reducers/';
 import Campuses from './Campuses';
+import SingleCampus from './SingleCampus';
 
 
 // exp
@@ -15,7 +17,6 @@ class App extends Component {
 
   componentDidMount() {
     this.props.fetchCampuses();
-
   }
 
   render() {
@@ -24,7 +25,8 @@ class App extends Component {
         <div>
           <Navbar />
           <Switch>
-            <Route path="/campuses" component={Campuses} />
+            <Route exact path="/campuses" component={Campuses} />
+            <Route path="/campuses/:campusId" component={SingleCampus} />
           </Switch>
         </div>
       </Router>
@@ -32,12 +34,24 @@ class App extends Component {
   }
 }
 
-const mapDispatch = { fetchCampuses }
+const mapDispatch = { fetchCampuses };
 export default connect(null, mapDispatch)(App);
 
 
 
+// const mapState = () => ({ message: 'Log in' });
 
+// const mapDispatch = { login: loginAndGoToUser };
+// // // equivalent to:
+// // const mapDispatch = (dispatch) => {
+// //   return {
+// //     login: function (credentials) {
+// //       dispatch(loginAndGoToUser(credentials));
+// //     }
+// //   };
+// // };
+
+// export default connect(mapState, mapDispatch)(Login);
 
 
 
