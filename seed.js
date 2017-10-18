@@ -30,14 +30,17 @@ const campusData = [
 const studentData = [
   {
     name: 'Eren Erdogan',
+    campusId: 3,
     email: 'eren@rutgers.edu'
   },
   {
     name: 'CJ Aydin',
+    campusId: 4,
     email: 'cj@rutgers.edu'
   },
   {
     name: 'Tim Sawma',
+    campusId: 2,
     email: 'tim@rutgers.edu'
   },
   {

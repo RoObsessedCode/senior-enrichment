@@ -2,7 +2,11 @@ const express = require('express');
 const router = express.Router();
 const models = require('../../db/models');
 
+
 const Campuses = models.Campus;
+const Students = models.Student;
+
+
 
 router.get('/', (req, res, next) => {
   Campuses.findAll()
@@ -28,8 +32,15 @@ router.param('campusId', function (req, res, next, id) {
 });
 
 router.get('/:campusId', (req, res, next) => {
-  console.log('ues yes syeyse ')
+
   res.json(req.campus);
+});
+
+router.get('/:campusId/students', (req, res, next) => {
+  const campusId = req.params.campusId; //can i do this even if I have router.param putting my id on req
+  Students.findAll({ where: { campusId }})
+    .then(students => res.json(students))
+    .catch(next);
 });
 
 router.post('/', (req, res, next) => {

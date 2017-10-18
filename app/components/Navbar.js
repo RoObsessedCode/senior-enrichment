@@ -8,12 +8,16 @@ const Navbar = (props) => {
     <nav>
       <section>
         <h4>
-          <button type="button">Home</button>
+          <Link to='/campuses'>
+            <button type="button">Home</button>
+          </Link>
         </h4>
       </section>
       <section>
         <h4>
-          <button type="button">Students</button>
+          <Link to='/students'>
+            <button type="button">Students</button>
+          </Link>
         </h4>
       </section>
     </nav>
