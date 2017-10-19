@@ -7,11 +7,19 @@ const Navbar = (props) => {
   return (
     <nav>
       <section>
+        <div>
         <h4>
           <Link to='/campuses'>
             <button type="button">Home</button>
           </Link>
         </h4>
+        <h4>
+          <Link to='/new-campus'>
+            <button type="button">Add Campus</button>
+          </Link>
+        </h4>
+        </div>
+
       </section>
       <section>
         <h4>

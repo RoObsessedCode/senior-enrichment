@@ -1,45 +1,88 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {connect} from 'react-redux';
-import {writeCampusName} from '../reducers/store.js';
+import {writeCampusName, writeCampusImage, postCampus} from '../reducers/';
+//import { writeCampusName } from '../reducers/newCampusEntry';
 
-function NewCampusEntry (props) {
+function NewCampusEntry (props)  {
   //ATTENTION!!!! OWN PROPS -- checkout react-redux 3 6
   //create new campus, automatically navigate to campus using history 3 6
-  const newCampusEntry = props.newCampusEntry;
+
+
+  //const newCampusEntry = props.newCampusEntry;
+  //console.log("newCampusEntry", newCampusEntry);
 
   return (
     <form onSubmit={props.handleSubmit}>
       <div>
-        <input onChange={props.handleChange} name = "campusName"/>
+        <label>Create a Campus</label>
+        <input
+          value={props.campusName}
+          onChange={props.handleChangeName}
+          type="text"
+          name = "campusName"
+          placeholder="Please Enter A New Campus Name"
+          multiple
+          />
+        <label>Campus Image Url</label>
+        <input
+          type="text"
+          name="campusImage"
+          value= {props.campusImage}
+          onChange={props.hangleChange}
+          placeholder="Please Enter a New Campus Image Url"
+
+        />
+      </div>
+      <div>
+        <button type="submit" >Create Campus</button>
       </div>
     </form>
   )
-
-
-
 }
+
+
+
+
 
 const mapStateToProps = function (state) {
-  return {};
+  return {
+    newCampusNameEntry: state.newCampusNameEntry,
+    newCampusImageEntry: state.newCampusImageEntry
+  };
+
 }
 
-const mapDispatchToProps = function (dispatch) {
+const mapDispatchToProps = function (dispatch, ownProps) {
   return {
-    handleChange: function(event) {
+    //REMEMEBR TO CONSOLE>LOG TARGET
+    handleChangeName: function(event) {
+      //const name = event.target.name;
       const inputValue = event.target.value;
-      const action = writeCampusName(inputValue);
-      dispatch(action);
+      //this.setState({campusName: inputValue })
+      dispatch(writeCampusName(inputValue));
+
+    },
+    handleChangeImage: function(event) {
+      //const name = event.target.name;
+      const inputValue = event.target.value;
+      //this.setState({campusImage: inputValue})
+      dispatch(writeCampusImage(inputValue));
     },
     handleSubmit: function(event) {
       event.preventDefault();
       const name = event.target.campusName.value;
-      const newCampus = { name };
-      dispatch(postCampus(newCampus));
+      const imageUrl = event.target.campusImage.value;
 
+      const newCampus = { name, imageUrl };
+      dispatch(postCampus(newCampus, ownProps.history));
+      dispatch(writeCampusName(''));
+      dispatch(writeCampusImage(''));
+
+     //do you want to send an object or name
     }
 
   };
 }
 
-const NewCampusEntryContainer = connect(mapStateToProps, mapDispatchToProps)(NewCampusEntry)
+const NewCampusEntryContainer = connect(mapStateToProps, mapDispatchToProps)(NewCampusEntry);
 export default NewCampusEntryContainer;

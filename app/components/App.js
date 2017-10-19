@@ -8,6 +8,7 @@ import {fetchCampuses } from '../reducers/';
 import Campuses from './Campuses';
 import SingleCampus from './SingleCampus';
 import AllStudents from './AllStudents';
+import NewCampusEntry from './NewCampusEntry';
 
 
 // exp
@@ -26,7 +27,7 @@ class App extends Component {
         <div>
           <Navbar />
           <Switch>
-
+            <Route path="/new-campus" component={NewCampusEntry} />>
             <Route exact path="/campuses" component={Campuses} />
             <Route path="/campuses/:campusId" component={SingleCampus} />
             <Route path="/students" component={AllStudents} />
@@ -84,6 +85,7 @@ export default connect(null, mapDispatch)(App);
 // //import NewChannelEntry from './NewChannelEntry';
 // //import store, { fetchMessages, fetchChannels } from '../store';
 // import AllStudents from './AllStudents';
+//import NewCampusEntryContainer from './NewCampusEntry';
 
 // export default class Main extends Component {
 

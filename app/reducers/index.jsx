@@ -6,6 +6,8 @@ import campuses from './campuses';
 import singleCampus from './singleCampus';
 import studentsList from './studentsList';
 import allStudents from './allStudents';
+import newCampusNameEntry from './newCampusNameEntry';
+import newCampusImageEntry from './newCampusImageEntry';
 
 //const initialState = {}
 
@@ -16,7 +18,7 @@ import allStudents from './allStudents';
 // };
 
 const rootReducer = combineReducers({
-  campuses, singleCampus, studentsList, allStudents
+  campuses, singleCampus, studentsList, allStudents, newCampusNameEntry, newCampusImageEntry
 });
 
 const store = createStore(
@@ -30,3 +32,5 @@ export * from './campuses'
 export * from './singleCampus'
 export * from './studentsList'
 export * from './allStudents'
+export * from './newCampusNameEntry'
+export * from './newCampusImageEntry'
