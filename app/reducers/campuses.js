@@ -37,7 +37,8 @@ export function postCampus (campus, history) {
       .then(newCampus => {
         dispatch(getCampus(newCampus));
         history.push(`/campuses/${newCampus.id}`);
-      });
+      })
+      .catch(err => console.error(err));
   };
 }
 

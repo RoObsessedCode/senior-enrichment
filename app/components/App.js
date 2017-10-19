@@ -9,7 +9,7 @@ import Campuses from './Campuses';
 import SingleCampus from './SingleCampus';
 import AllStudents from './AllStudents';
 import NewCampusEntry from './NewCampusEntry';
-
+import NewStudentEntry from './NewStudentEntry';
 
 // exp
 
@@ -27,7 +27,8 @@ class App extends Component {
         <div>
           <Navbar />
           <Switch>
-            <Route path="/new-campus" component={NewCampusEntry} />>
+            <Route path="/new-campus" component={NewCampusEntry} />
+            <Route path="/new-student" component={NewStudentEntry} />
             <Route exact path="/campuses" component={Campuses} />
             <Route path="/campuses/:campusId" component={SingleCampus} />
             <Route path="/students" component={AllStudents} />
@@ -42,8 +43,6 @@ class App extends Component {
 const mapDispatch = { fetchCampuses };
 export default connect(null, mapDispatch)(App);
 
-
-
 // const mapState = () => ({ message: 'Log in' });
 
 // const mapDispatch = { login: loginAndGoToUser };
@@ -57,25 +56,6 @@ export default connect(null, mapDispatch)(App);
 // // };
 
 // export default connect(mapState, mapDispatch)(Login);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // import React, { Component } from 'react';
 // import { Route, Switch, Redirect } from 'react-router-dom';
@@ -108,7 +88,5 @@ export default connect(null, mapDispatch)(App);
 //       </div>
 //     );
 //   }
-
-
 
 // }
