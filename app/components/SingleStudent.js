@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchCampuses, fetchSingleStudent } from '../reducers';
 
 class SingleStudent extends Component {
 
-  constructor () {
+  constructor() {
     super();
     this.getCampusName = this.getCampusName.bind(this);
   }
@@ -40,6 +41,11 @@ class SingleStudent extends Component {
               this.getCampusName(this.props.campuses, this.props.student.campusId)
             }
           </h3>
+          <h4>
+            <Link to={`/edit-student/${this.props.student.id}`}>
+              <button type="button">Edit Student</button>
+            </Link>
+          </h4>
 
         </div>
       </div>

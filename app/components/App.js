@@ -11,6 +11,8 @@ import AllStudents from './AllStudents';
 import NewCampusEntry from './NewCampusEntry';
 import NewStudentEntry from './NewStudentEntry';
 import SingleStudent from './SingleStudent';
+import EditStudent from './EditStudent';
+import EditCampus from './EditCampus';
 
 // exp
 
@@ -29,7 +31,9 @@ class App extends Component {
           <Navbar />
           <Switch>
             <Route path="/new-campus" component={NewCampusEntry} />
+            <Route path="/edit-campus/:campusId" component={EditCampus} />
             <Route path="/new-student" component={NewStudentEntry} />
+            <Route path="/edit-student/:studentId" component={EditStudent} />
             <Route exact path="/campuses" component={Campuses} />
             <Route path="/campuses/:campusId" component={SingleCampus} />
             <Route exact path="/students" component={AllStudents} />
