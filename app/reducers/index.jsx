@@ -5,6 +5,7 @@ import thunkMiddleware from 'redux-thunk';
 import campuses from './campuses';
 import singleCampus from './singleCampus';
 import studentsList from './studentsList';
+import singleStudent from './singleStudent';
 import allStudents from './allStudents';
 import newCampusNameEntry from './newCampusNameEntry';
 import newCampusImageEntry from './newCampusImageEntry';
@@ -20,7 +21,7 @@ import newStudentEmailEntry from './newStudentEmailEntry';
 // };
 
 const rootReducer = combineReducers({
-  campuses, singleCampus, studentsList, allStudents, newCampusNameEntry, newCampusImageEntry, newStudentNameEntry, newStudentEmailEntry
+  campuses, singleCampus, studentsList, singleStudent, allStudents, newCampusNameEntry, newCampusImageEntry, newStudentNameEntry, newStudentEmailEntry
 });
 
 const store = createStore(
@@ -38,3 +39,4 @@ export * from './newCampusNameEntry'
 export * from './newCampusImageEntry'
 export * from './newStudentNameEntry'
 export * from './newStudentEmailEntry'
+export * from './singleStudent'

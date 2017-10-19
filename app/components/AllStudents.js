@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchAllStudents, fetchCampuses, deleteStudent } from '../reducers/';
 
@@ -31,7 +32,6 @@ class AllStudents extends Component {
 
   }
 
-
   render() {
     const allStudents = this.props.allStudents;
     const allCampuses = this.props.allCampuses;
@@ -48,14 +48,16 @@ class AllStudents extends Component {
             allStudents && allStudents.map(student => {
               return (
                 <tr key={student.id}>
-                  <th>{student.id}</th>
-                  <th>
-                    {student.name}
-                  </th>
-                  <th>
-                    {this.getCampusName(allCampuses, student.campusId)}
-                  </th>
-                  <th>
+                  <Link to={`/students/${student.id}`}>
+                    <th>{student.id}</th>
+                    <th>
+                      {student.name}
+                    </th>
+                    <th>
+                      {this.getCampusName(allCampuses, student.campusId)}
+                    </th>
+                  </Link>
+                    <th>
                     <span>
                       <button onClick={this.deleteStudent(student.id)}type="button">X</button>
                     </span>

@@ -10,6 +10,7 @@ import SingleCampus from './SingleCampus';
 import AllStudents from './AllStudents';
 import NewCampusEntry from './NewCampusEntry';
 import NewStudentEntry from './NewStudentEntry';
+import SingleStudent from './SingleStudent';
 
 // exp
 
@@ -31,7 +32,8 @@ class App extends Component {
             <Route path="/new-student" component={NewStudentEntry} />
             <Route exact path="/campuses" component={Campuses} />
             <Route path="/campuses/:campusId" component={SingleCampus} />
-            <Route path="/students" component={AllStudents} />
+            <Route exact path="/students" component={AllStudents} />
+            <Route path="/students/:studentId" component={SingleStudent} />
             <Route path="/" component = {Campuses} />
           </Switch>
         </div>
@@ -42,51 +44,3 @@ class App extends Component {
 
 const mapDispatch = { fetchCampuses };
 export default connect(null, mapDispatch)(App);
-
-// const mapState = () => ({ message: 'Log in' });
-
-// const mapDispatch = { login: loginAndGoToUser };
-// // // equivalent to:
-// // const mapDispatch = (dispatch) => {
-// //   return {
-// //     login: function (credentials) {
-// //       dispatch(loginAndGoToUser(credentials));
-// //     }
-// //   };
-// // };
-
-// export default connect(mapState, mapDispatch)(Login);
-
-// import React, { Component } from 'react';
-// import { Route, Switch, Redirect } from 'react-router-dom';
-// //import Sidebar from './Sidebar';
-// import Navbar from './Navbar';
-// //import MessagesList from './MessagesList';
-// //import NewChannelEntry from './NewChannelEntry';
-// //import store, { fetchMessages, fetchChannels } from '../store';
-// import AllStudents from './AllStudents';
-//import NewCampusEntryContainer from './NewCampusEntry';
-
-// export default class Main extends Component {
-
-//   componentDidMount () {
-//     const studentsThunk = fetchStudents();
-//     const campusesThunk = fetchCampuses();
-//     store.dispatch(studentsThunk);
-//     store.dispatch(campusesThunk);
-//   }
-
-//   render () {
-//     return (
-//       <div>
-//         <Navbar />
-//         <main>
-//           <Switch>
-
-//           </Switch>
-//         </main>
-//       </div>
-//     );
-//   }
-
-// }

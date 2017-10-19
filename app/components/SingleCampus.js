@@ -1,4 +1,3 @@
-//import React, { Component } from 'react';
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
@@ -13,7 +12,6 @@ class SingleCampus extends Component {
     this.props.fetchStudentsList(id);
   }
 
-
   //console.log("campus--bro", props.fetchSingleCampus(id))
   // console.log("propsss", props);
   render() {
@@ -24,11 +22,10 @@ class SingleCampus extends Component {
       <div>
         <div>
           <h3>{this.props.campus && this.props.campus.name}</h3>
-          <img src={ this.props.campus.imageUrl }/>
+          <img src={ this.props.campus.imageUrl } />
 
           <h3>Students</h3>
-          <StudentsList students={this.props.students}/>
-
+          <StudentsList students={this.props.students} />
 
         </div>
       </div>
