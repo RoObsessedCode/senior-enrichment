@@ -10,7 +10,7 @@ function NewCampusEntry(props) {
       <div>
         <label>Create Campus: </label>
         <input
-          value={props.campusName}
+          value={props.newCampusNameEntry}
           onChange={props.handleChangeName}
           type="text"
           name="campusName"
@@ -20,7 +20,7 @@ function NewCampusEntry(props) {
         <label>Campus Image Url: </label>
         <input
 
-          value={props.campusImage}
+          value={props.newCampusImageEntry}
           onChange={props.hangleChangeImage}
           type="text"
           name="campusImage"

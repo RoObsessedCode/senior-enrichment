@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { writeStudentName, writeStudentEmail, postStudent} from '../reducers/';
+import { writeStudentName, writeStudentEmail, postStudent, fetchCampuses } from '../reducers/';
 
 function NewStudentEntry(props) {
 
@@ -9,7 +9,7 @@ function NewStudentEntry(props) {
       <div>
         <label>Add New Student: </label>
         <input
-          value={props.studentName}
+          value={props.newStudentNameEntry}
           onChange={props.handleChangeName}
           type="text"
           name="studentName"
@@ -18,12 +18,22 @@ function NewStudentEntry(props) {
         />
         <label>Student's Email: </label>
         <input
-          value={props.studentEmail}
+          value={props.newStudentEmailEntry}
           onChange={props.handleChangeEmail}
           type="text"
           name="studentEmail"
           placeholder="Enter New Student's Email Address"
         />
+        <select name="studentsCampusName" >
+          {
+            props.campuses.map(campus => {
+              return (
+                <option key={campus.id} value={campus.id}>{campus.name}</option>
+              );
+
+            })
+          }
+        </select>
 
       </div>
       <div>
@@ -35,7 +45,7 @@ function NewStudentEntry(props) {
 
 const mapStateToProps = function (state) {
   return {
-    //campuses: state.campuses,
+    campuses: state.campuses,
     newStudentNameEntry: state.newStudentNameEntry,
     newStudentEmailEntry: state.newStudentEmailEntry
 
@@ -56,7 +66,9 @@ const mapDispatchToProps = function (dispatch, ownProps) {
       event.preventDefault();
       const name = event.target.studentName.value;
       const email = event.target.studentEmail.value;
-      const newStudent = {name, email};
+      const campusId = event.target.studentsCampusName.value;
+
+      const newStudent = { name, email, campusId };
       dispatch(postStudent(newStudent, ownProps.history));
       dispatch(writeStudentName(''));
       dispatch(writeStudentEmail(''));
