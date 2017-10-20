@@ -41,9 +41,4 @@ const Navbar = (props) => {
 
 export default Navbar;
 
-// import React from 'react';
-// import { connect } from 'react-redux';
 
-// function Navbar (props) {
-
-// }

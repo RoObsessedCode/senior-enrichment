@@ -19,10 +19,6 @@ export function getStudent (student) {
   const action = { type: GET_STUDENT, student };
   return action;
 }
-// export function getAllCampuses (campuses) {
-//   const action = { type: GET_ALL_CAMPUSES, campuses};
-//   return action;
-// }
 
 //THUNK
 

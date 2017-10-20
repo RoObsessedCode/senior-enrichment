@@ -14,12 +14,8 @@ class SingleCampus extends Component {
     this.props.fetchStudentsList(id);
   }
 
-  //console.log("campus--bro", props.fetchSingleCampus(id))
-  // console.log("propsss", props);
   render() {
-    console.log("students from SingleCampus: ", this.props.students);
-    //console.log("But do we have campus?: ", this.props.campus.name);
-    //console.log("What is in my props? ", this.props);
+
     return (
       <div>
         <div>

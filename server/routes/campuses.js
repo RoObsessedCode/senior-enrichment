@@ -34,7 +34,7 @@ router.get('/:campusId', (req, res, next) => {
 });
 
 router.get('/:campusId/students', (req, res, next) => {
-  const campusId = req.params.campusId; //can i do this even if I have router.param putting my id on req
+  const campusId = req.params.campusId;
   Students.findAll({ where: { campusId }})
     .then(students => res.json(students))
     .catch(next);

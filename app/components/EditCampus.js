@@ -64,13 +64,8 @@ const mapDispatchToProps = function (dispatch, ownProps) {
       const imageUrl = event.target.campusImage.value;
       if (imageUrl) editedCampus.imageUrl = imageUrl;
 
-      dispatch(updateCampus(campusId, editedCampus, ownProps.history))
-      // const campusId = event.target.studentsCampusName.value;
-      // if (campusId) editedStudent.campusId = campusId;
+      dispatch(updateCampus(campusId, editedCampus, ownProps.history));
 
-      //dispatch(updateStudent(studentId, editedStudent, ownProps.history));
-      //dispatch(editStudentName(''));
-      //dispatch(editStudentEmail(''));
     }
   };
 };

@@ -21,7 +21,6 @@ class Campuses extends Component {
 
   render() {
     const { campuses } = this.props;
-    console.log("props: ", this.props);
     return (
       //use logic from albums here
       <div>

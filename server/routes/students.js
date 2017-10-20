@@ -36,7 +36,6 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:studentId', (req, res, next) => {
-  console.log("BODYYYYYYY", req.body)
   Students.update(req.body,
     {where: {id: req.params.studentId}, returning: true})
     .then(student => {
@@ -52,10 +51,5 @@ router.delete('/:studentId', (req, res, next) => {
     .then(() => res.status(204).end())
     .catch(next);
 });
-// router.put('/:playlistId', function (req, res, next) {
-//   req.playlist.update(req.body)
-//   .then(playlist => res.status(200).json(playlist))
-//   .catch(next);
-// });
 
 module.exports = router;

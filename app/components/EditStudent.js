@@ -4,11 +4,6 @@ import { editStudentName, editStudentEmail, updateStudent } from '../reducers'
 
 export class EditStudent extends Component {
 
-  // componentDidMount() {
-  //   const id = this.props.match.params.studentId;
-
-  // }
-
   render() {
 
   return (
@@ -84,8 +79,7 @@ const mapDispatchToProps = function (dispatch, ownProps) {
       if (campusId) editedStudent.campusId = campusId;
 
       dispatch(updateStudent(studentId, editedStudent, ownProps.history));
-      //dispatch(editStudentName(''));
-      //dispatch(editStudentEmail(''));
+
     }
   };
 };

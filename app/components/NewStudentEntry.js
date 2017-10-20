@@ -78,9 +78,3 @@ const mapDispatchToProps = function (dispatch, ownProps) {
 
 const NewStudentEntryContainer = connect(mapStateToProps, mapDispatchToProps)(NewStudentEntry);
 export default NewStudentEntryContainer;
-
-        // <select name="campusName">
-        //   {
-
-        //   }
-        // </select>

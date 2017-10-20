@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { writeCampusName, writeCampusImage, postCampus } from '../reducers/';
-//import { writeCampusName } from '../reducers/newCampusEntry';
 
 function NewCampusEntry(props) {
 
