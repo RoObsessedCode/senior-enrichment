@@ -11,6 +11,10 @@ import newCampusNameEntry from './newCampusNameEntry';
 import newCampusImageEntry from './newCampusImageEntry';
 import newStudentNameEntry from './newStudentNameEntry';
 import newStudentEmailEntry from './newStudentEmailEntry';
+import editStudentNameEntry from './editStudentNameEntry';
+import editStudentEmailEntry from './editStudentEmailEntry';
+import editCampusNameEntry from './editCampusNameEntry';
+import editCampusImageEntry from './editCampusImageEntry';
 
 //const initialState = {}
 
@@ -21,7 +25,7 @@ import newStudentEmailEntry from './newStudentEmailEntry';
 // };
 
 const rootReducer = combineReducers({
-  campuses, singleCampus, studentsList, singleStudent, allStudents, newCampusNameEntry, newCampusImageEntry, newStudentNameEntry, newStudentEmailEntry
+  campuses, singleCampus, studentsList, singleStudent, allStudents, newCampusNameEntry, newCampusImageEntry, newStudentNameEntry, newStudentEmailEntry, editStudentNameEntry, editStudentEmailEntry, editCampusImageEntry, editCampusNameEntry
 });
 
 const store = createStore(
@@ -40,3 +44,7 @@ export * from './newCampusImageEntry'
 export * from './newStudentNameEntry'
 export * from './newStudentEmailEntry'
 export * from './singleStudent'
+export * from './editStudentNameEntry'
+export * from './editStudentEmailEntry'
+export * from './editCampusImageEntry'
+export * from './editCampusNameEntry'

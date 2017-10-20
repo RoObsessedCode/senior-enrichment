@@ -60,6 +60,19 @@ export function postStudent (student, history) {
   }
 }
 
+export function updateStudent (id, student, history) {
+  return function thunk (dispatch) {
+    return axios.put(`/api/students/${id}`, student)
+      .then(res => res.data)
+      .then(editedStudent => {
+        console.log("ediited: ", editedStudent[1][0]);
+        dispatch(getStudent(editedStudent[1][0]));
+        history.push(`/students/${editedStudent[1][0].id}`);
+      })
+      .catch(err => console.error(`Updating student: ${student} unsuccesful`, err));
+  }
+}
+
 export default function reducer (state = [], action) {
 
   switch (action.type) {

@@ -3,103 +3,62 @@ import { Link } from 'react-router-dom';
 //import store from '../store.jsx';
 import { connect } from 'react-redux';
 
+import { deleteCampus } from '../reducers/';
 
+class Campuses extends Component {
 
+  constructor() {
+    super();
+    this.deleteCampus = this.deleteCampus.bind(this);
+  }
 
-const Campuses = (props) => {
+  deleteCampus(campusId) {
+    return () => {
+      this.props.deleteCampus(campusId);
+    }
 
-  const { campuses } = props;
-  console.log("props: ", props);
-  return (
-    //use logic from albums here
-    <div>
-      <h2>Campuses</h2>
+  }
+
+  render() {
+    const { campuses } = this.props;
+    console.log("props: ", this.props);
+    return (
+      //use logic from albums here
       <div>
-        {
-          campuses.map(campus => (
-            <div key={campus.id}>
-              <Link to={`/campuses/${campus.id}`}>
-                <img src={campus.imageUrl} />
+        <h2>Campuses</h2>
+        <div>
+          {
+            campuses.map(campus => (
+              <div key={campus.id}>
+                <Link to={`/campuses/${campus.id}`}>
+
+                  <div>
+                    <h5>
+                      <span>{campus.name}</span>
+                    </h5>
+                    <span>
+                    <img src={campus.imageUrl} />
+                    </span>
+                  </div>
+                </Link>
                 <div>
-                  <h5>
-                    <span>{campus.name}</span>
-                  </h5>
+                  <button onClick={this.deleteCampus(campus.id)} type="button">X</button>
                 </div>
-              </Link>
-            </div>
+              </div>
 
-          ))
-        }
+            ))
+          }
+        </div>
+
       </div>
-
-    </div>
-  )
+    )
+  }
 }
 const mapStateToProps = function (state) {
   return {
     campuses: state.campuses
   };
 }
+const mapDispatch = { deleteCampus };
 
-export default connect(mapStateToProps, null)(Campuses);
-
-/* container comp is connected to store, whenever state inside store changes
-this component will know that it might need to rerender dumb component passing down slices of state from store to props. we choose which slices of state via mapSTatetoProps function. every time state inside store is updated this func will be invoked with new state then the object that mapState toprops returns comes part of props that dumb component receives.
-*/
-
-
-
-
-
-
-// import React from 'react';
-// import { withRouter, NavLink } from 'react-router-dom';
-// import { connect } from 'react-redux';
-
-// function AllCampuses (props) {
-
-//   //const { messages, channels, changeChannel } = props;
-//   const { students, campuses } = props;
-
-//   return (
-//     <ul>
-//       {
-//         campuses.map(campus => {
-//           return (
-//             <li key={campus.id}>
-//               <NavLink to={`/campuses/${campus.id}`}>
-//                 <span># {campus.name}</span>
-//                 <span></span>
-//               </NavLink>
-//             </li>
-//           );
-//         })
-//       }
-//       <li>
-//         <NavLink to="/new-campus">Create a campus...</NavLink>
-//       </li>
-//     </ul>
-//   );
-// }
-
-// const mapStateToProps = function (state) {
-//   return {
-
-//   };
-// };
-
-// // We need to wrap the component in `withRouter` so that the NavLinks will be able to update
-// // Because `connect` implements `shouldComponentUpdate`, it will block re-rendering unless it detects
-// // a prop change. When we change the url, neither the messages nor the channels we send to the ChannelList
-// // component change, so the component doesn't re-render. What `withRouter` does is it passes the Router's
-// // props down to its inner component.
-// //
-// // It's equivalent to saying:
-// //
-// // const ConnectedChannelList = connect(mapStateToProps)(ChannelList);
-// //
-// // ...elsewhere, in a `render`:
-// // <Route component={ConnectedChannelList} />
-// //
-// const AllCampusesContainer = withRouter(connect(mapStateToProps)(ChannelList));
-// export default AllCampusesContainer;
+export default connect(mapStateToProps, mapDispatch)(Campuses);

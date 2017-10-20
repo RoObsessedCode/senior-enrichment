@@ -36,9 +36,13 @@ router.post('/', (req, res, next) => {
 });
 
 router.put('/:studentId', (req, res, next) => {
-  req.student.update(req.body)
+  console.log("BODYYYYYYY", req.body)
+  Students.update(req.body,
+    {where: {id: req.params.studentId}, returning: true})
     .then(student => {
-      res.status(201).json(student);
+      console.log(student);
+      res.status(201).send(student);
+
     })
     .catch(next);
 });
@@ -55,5 +59,3 @@ router.delete('/:studentId', (req, res, next) => {
 // });
 
 module.exports = router;
-
-
