@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { writeCampusName, writeCampusImage, postCampus } from '../reducers/';
+import { writeCampusName, writeCampusImage, postCampus, editCampusImage } from '../reducers/';
 
 function NewCampusEntry(props) {
 
@@ -20,7 +20,7 @@ function NewCampusEntry(props) {
         <input
 
           value={props.newCampusImageEntry}
-          onChange={props.hangleChangeImage}
+          onChange={props.handleChangeImage}
           type="text"
           name="campusImage"
           placeholder="Enter a New Campus Image Url"
